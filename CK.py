@@ -10,6 +10,7 @@ from sklearn.preprocessing import LabelBinarizer
 import pickle
 from sklearn.model_selection import train_test_split
 import time
+import matplotlib.pyplot as plt
 
 ######################################## Loading Data & Preprocess #########################################
 path = r'CK+\\*\\*'
@@ -67,7 +68,6 @@ CNN_net.compile(
 #print(y_train.shape)
 begin = time.time()
 CNN_net.fit(
-
             aug.flow(X_train, y_train, batch_size = 64),
             steps_per_epoch = len(X_train)//64,
             validation_data = (X_test, y_test),
@@ -75,8 +75,6 @@ CNN_net.fit(
             )
 end = time.time()
 print("Total time of running Net is {}".format(end-begin))
-
-
 
 
 
